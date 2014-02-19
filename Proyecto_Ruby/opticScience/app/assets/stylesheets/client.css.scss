@@ -1,0 +1,28 @@
+// Place all the styles related to the client controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+	background: url('proyecto.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	font-family: Serif Comic Sans;
+	font-size: 18px;
+	text-align: center;
+input[type=submit] {
+    width: 18em;  height: 2em;
+    color: blue; background: white;
+    font-size: 18px; font-family: Serif Comic Sans;
+}
+h1{
+  font-weight:140;
+  color: gold;
+  text-decoration: none;
+}
+h2{
+  font-weight:100;
+  color: blue;
+  text-decoration: none;
+}
+}

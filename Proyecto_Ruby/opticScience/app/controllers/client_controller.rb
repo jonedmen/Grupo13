@@ -1,0 +1,39 @@
+class ClientController < ApplicationController
+
+  def index
+    @clients = Client.all
+		@items = Item.all
+  end
+
+  def new
+    @client = Client.new
+  end
+
+  def create
+    @client = Client.new(params.require(:client).permit(:cedula, :nombre, :apellido))
+    if @client.save
+      redirect_to client_index_path, :notice => "Se registro correctamente"
+    else
+      render :action => "new"
+    end
+  end
+  
+  def destroy
+    @client = Client.find(params[:id])
+    @client.destroy
+    redirect_to client_index_path, :notice => "Se ah eliminado correctamente"
+  end
+
+  def edit
+    @client = Client.find(params[:id])
+  end
+
+  def update
+    @client = Client.find(params[:id])
+    if @client.update_attributes(params.require(:client).permit(:cedula, :nombre, :apellido))
+      redirect_to client_index_path, :notice => "Se actualizo correctamente"
+    else
+      render "edit"
+    end
+  end
+end

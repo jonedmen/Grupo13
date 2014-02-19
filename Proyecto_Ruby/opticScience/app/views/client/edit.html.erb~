@@ -1,0 +1,12 @@
+<h1>Editar Cliente</h1>
+
+<%= form_for @client,:url => { :action => "update" } do |f| %>﻿
+  <p>
+    <%= f.label :cedula %>: <%= f.text_field :cedula %><br /><br />
+    <%= f.label :nombre %>: <%= f.text_field :nombre %><br /><br />
+    <%= f.label :apellido %>: <%= f.text_field :apellido %><br />
+  </p>
+  <p>
+    <%= f.submit "Actualizar cliente"%>
+  </p>
+<%end%>

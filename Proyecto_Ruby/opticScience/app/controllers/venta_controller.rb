@@ -1,0 +1,36 @@
+class VentaController < ApplicationController
+	def index
+  end
+
+  def new
+		@venta = Venta.new
+  end
+
+  def create
+		@venta = Venta.new(params.require(:venta).permit(:@client.cedula,:@item.nombre,@item.valor,:localidad))
+    if @item.save
+      redirect_to client_index_path, :notice => "Se registro correctamente"
+    else
+      render :action => "new"
+    end
+  end
+  
+  def destroy
+		@item = Item.find(params[:id])
+    @item.destroy
+    redirect_to client_index_path, :notice => "Se ah eliminado correctamente"
+  end
+
+  def edit
+		@item = Item.find(params[:id])
+  end
+
+  def update
+		@item = Item.find(params[:id])
+    if @item.update_attributes(params.require(:item).permit(:nombre,:valor))
+      redirect_to client_index_path, :notice => "Se actualizo correctamente"
+    else
+      render "edit"
+    end
+  end
+end

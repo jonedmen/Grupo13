@@ -1,0 +1,11 @@
+<h1>Editar item</h1>
+
+<%= form_for @item,:url => { :action => "update" } do |f| %>﻿
+  <p>
+    <%= f.label :nombre %>: <%= f.text_field :nombre %><br /><br />
+    <%= f.label :valor %>: <%= f.text_field :valor %><br />
+  </p>
+  <p>
+    <%= f.submit "Actualizar item"%>
+  </p>
+<%end%>
